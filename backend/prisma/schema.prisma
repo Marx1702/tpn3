@@ -1,0 +1,91 @@
+// Configuración de la fuente de datos y el generador
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Modelo Player (Jugador)
+model Player {
+  id               Int                 @id @default(autoincrement())
+  fullName         String
+  age              Int
+  nationality      String
+  position         String
+  jerseyNumber     Int
+  currentTeam      String
+  matchesPlayed    Int
+  goalsScored      Int
+  assists          Int
+  yellowCards      Int
+  redCards         Int
+  height           Float
+  weight           Float
+  dominantFoot     String
+  birthDate        DateTime
+  totalGoals       Int
+  totalAssists     Int
+  totalMatches     Int
+  recentInjuries   String?
+  socialMedia      String?
+  photoURL         String?
+  createdAt        DateTime            @default(now())
+
+  // Relación con equipos anteriores
+  previousTeams    PlayerPreviousTeam[]
+
+  @@map("players")
+}
+
+// Modelo Team (Equipo)
+model Team {
+  id               Int         @id @default(autoincrement())
+  fullName         String
+  country          String
+  originCity       String
+  stadium          String
+  stadiumCapacity  Int
+  headCoach        String
+  foundingYear     Int
+  league           String
+  fifaRanking      Int
+  matchesPlayed    Int
+  matchesWon       Int
+  matchesLost      Int
+  matchesDrawn     Int
+  website          String?
+  logoURL          String?
+  createdAt        DateTime    @default(now())
+
+  // Relación con colores del equipo
+  teamColors       TeamColor[]
+
+  @@map("teams")
+}
+
+// Modelo para equipos anteriores de un jugador
+model PlayerPreviousTeam {
+  id        Int     @id @default(autoincrement())
+  playerId  Int
+  teamName  String
+
+  // Relación con el jugador
+  player    Player  @relation(fields: [playerId], references: [id])
+
+  @@map("player_previous_teams")
+}
+
+// Modelo para los colores de un equipo
+model TeamColor {
+  id       Int    @id @default(autoincrement())
+  teamId   Int
+  color    String
+
+  // Relación con el equipo
+  team     Team   @relation(fields: [teamId], references: [id])
+
+  @@map("team_colors")
+}
