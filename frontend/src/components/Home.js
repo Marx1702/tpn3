@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const teams = [
-  { name: "Argentina", flag: "/flags/Argentina.jpg" },
-  { name: "Brazil", flag: "/path/to/brazil-flag.png" },
-  { name: "Chile", flag: "/path/to/chile-flag.png" },
-  { name: "Colombia", flag: "/path/to/colombia-flag.png" },
-  { name: "Uruguay", flag: "/path/to/uruguay-flag.png" },
-  { name: "Paraguay", flag: "/path/to/paraguay-flag.png" },
-  { name: "Perú", flag: "/path/to/peru-flag.png" },
-  { name: "Ecuador", flag: "/path/to/ecuador-flag.png" },
-  { name: "Venezuela", flag: "/path/to/venezuela-flag.png" },
-  { name: "Bolivia", flag: "/path/to/bolivia-flag.png" },
+  { name: "Argentina", flag: "../../flags/Argentina.png" },
+  { name: "Brazil", flag: "../../flags/Brasil.png" },
+  { name: "Chile", flag: "../../flags/Chile.png" },
+  { name: "Colombia", flag: "../../flags/Colombia.png" },
+  { name: "Uruguay", flag: "../../flags/Uruguay.png" },
+  { name: "Paraguay", flag: "../../flags/Paraguay.png" },
+  { name: "Perú", flag: "../../flags/Peru.png" },
+  { name: "Ecuador", flag: "../../flags/Ecuador.png" },
+  { name: "Venezuela", flag: "../../flags/Venezuela.png" },
+  { name: "Bolivia", flag: "../../flags/Bolivia.png" },
 ];
 
 function Home() {
@@ -30,7 +30,7 @@ function Home() {
         {teams.map((team) => (
           <Link to={`/tables/${team.name}`} key={team.name}>
             <img
-              src={process.env.PUBLIC_URL + team.flag}
+              src={`../../flags/${team.flag}`}
               alt={team.name}
               style={{ width: "100%", height: "auto", cursor: "pointer" }}
             />
