@@ -5,9 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(244, 244, 244);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease; /* Duración de la transición al hacer hover */
+}
+
+.hover-scale:hover {
+  transform: scale(0.95);
 }

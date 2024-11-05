@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: "#333",
+        backgroundColor: "#132445",
         padding: "10px",
         color: "#fff",
         textAlign: "center",
@@ -14,9 +14,7 @@ function Footer() {
         width: "100%", // Asegúrate de que ocupe el ancho completo
       }}
     >
-      <p>
-        © 2024 ODIO EL FRONT ATTE:MARCELO
-      </p>
+      <p>© 2024 Portal de Estadísticas Deportivas</p>
     </footer>
   );
 }
