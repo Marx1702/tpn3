@@ -17,14 +17,20 @@ const teams = [
 function Home() {
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>Bienvenido al Portal de Estadísticas Deportivas</h1>
-      <p>Explora las estadísticas detalladas de jugadores y equipos.</p>
+      <h1 style={{ color: "#132445" }}>
+        Bienvenido al Portal de Estadísticas Deportivas
+      </h1>
+      <p style={{ color: "gray" }}>
+        Explora las estadísticas detalladas de jugadores y equipos.
+      </p>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
-          gap: "10px",
+          gridTemplateColumns: "repeat(5, minmax(100px, 1fr))",
+          gap: "15px",
           marginTop: "20px",
+          overflow: "hidden",
+          transition: "transform 0.3s ease",
         }}
       >
         {teams.map((team) => (
@@ -32,7 +38,14 @@ function Home() {
             <img
               src={`../../flags/${team.flag}`}
               alt={team.name}
-              style={{ width: "100%", height: "auto", cursor: "pointer" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "8px",
+                cursor: "pointer",
+              }}
+              className="hover-scale"
             />
           </Link>
         ))}
